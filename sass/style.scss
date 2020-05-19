@@ -23,6 +23,7 @@ h2 {
   align-items: center;
   flex-direction: row;
   width: 25vw;
+  margin-bottom: 4vh;
 }
 .form label {
   font-size: medium;
@@ -47,6 +48,11 @@ h2 {
   padding: 1.5rem;
   width: 35vw;
   background-color: white;
+
+  h4 {
+    text-transform: uppercase;
+    color: lightseagreen;
+  }
 }
 .widget-box:hover {
   background-color: lightgray;

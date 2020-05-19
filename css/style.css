@@ -1,0 +1,103 @@
+/* main container */
+.container {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+h2 {
+  color: lightseagreen;
+  font-size: large;
+}
+
+/* result from js */
+.repositories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* input form */
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 25vw;
+  margin-bottom: 4vh;
+}
+
+.form label {
+  font-size: medium;
+}
+
+.inputText {
+  padding: 0.1em;
+  font-size: medium;
+}
+
+.btn {
+  background-color: orange;
+  padding: 0.5em;
+  border-radius: 5%;
+}
+
+/* Github widget box styling */
+.widget-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-decoration: none;
+  color: #6e6a6a;
+  border: 1px solid lightblue;
+  padding: 1.5rem;
+  width: 35vw;
+  background-color: white;
+}
+
+.widget-box h4 {
+  text-transform: uppercase;
+  color: lightseagreen;
+}
+
+.widget-box:hover {
+  background-color: lightgray;
+}
+
+.widget-box p {
+  color: #424141;
+}
+/*# sourceMappingURL=style.css.map */

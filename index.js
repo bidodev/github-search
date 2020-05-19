@@ -49,8 +49,8 @@ class Search {
     */
     this.elements.container = document.querySelector(this.options.container);
 
-    //the innerHTML of our elements.container now will be the result of the method parsedInitialTemplate()
-    this.elements.container.innerHTML = this.parsedInitialTemplate();
+    //the innerHTML of our elements.container now will be the result of the method initialTemplate()
+    this.elements.container.innerHTML = this.initialTemplate();
 
     // getting all the elements
     /* this three lines will fill up our object elements 
@@ -70,7 +70,7 @@ class Search {
     this.registerEvents();
   }
 
-  parsedInitialTemplate() {
+  initialTemplate() {
     return `
       <form class="form">
         <label for="username">Name</label>
@@ -79,6 +79,29 @@ class Search {
       </form>
       <div class="repositories"></div>
   `;
+  }
+
+  createListTemplate(repositories) {
+    return `
+      <div>
+        ${repositories
+          .map(repository => this.listTemplate(repository))
+          .join("")}
+      </div>
+    `;
+  }
+  listTemplate(repository) {
+    const { url, name, createdAt, description, language } = repository;
+    return `
+        <a href="${url}" target="_blank" class="widget-box">
+            <h4>${name}</h4>
+            <small>${createdAt}</small>
+          <p>
+            ${description}
+          </p>
+          <p>Mainly Language: ${language}</p>
+        </a>
+      `;
   }
 
   registerEvents() {
@@ -104,46 +127,34 @@ class Search {
     const response = await fetch(url);
     const data = await response.json();
 
+    console.log(data);
     callback(data);
   }
 
   filterReposResult(repositoryData) {
     const repositories = repositoryData.map(repo => {
       //destructuring
-      const { name, description, html_url: url, created_at: created } = repo;
+      const {
+        name,
+        description,
+        html_url: url,
+        created_at: created,
+        language,
+      } = repo;
 
       return {
-        description: description ? description : "Description not avaiable",
+        description: description ? description : "Description not available",
         name: name,
         url: url,
         createdAt: created,
+        language: language ? language : "Unavailable",
       };
     });
     return repositories;
-  }
-
-  createListTemplate(repositories) {
-    return `
-      <div>
-        ${repositories
-          .map(repository => this.listTemplate(repository))
-          .join("")}
-      </div>
-    `;
-  }
-  listTemplate(repository) {
-    return `
-        <a href="${repository.url}" target="_blank" class="widget-box">
-            <h4>${repository.name}</h4>
-            <small>${repository.createdAt}</small>
-          <p>
-            ${repository.description}
-          </p>
-        </a>
-      `;
   }
 }
 
 //1 - Create an instance on Search class passing an object as argument
 //2 - Save the result inside the variable widget
 const widget = new Search({ container: ".result" });
+console.log(widget);
